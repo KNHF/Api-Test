@@ -5,7 +5,6 @@ import os
 
 bp = Blueprint('main', __name__)
 
-
 @bp.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
@@ -21,7 +20,6 @@ def home():
         except Exception as e:
             return jsonify({"error": "An error occurred while creating the user."}), 500
     return render_template("home.html")
-
 
 @bp.route("/user/<int:user_id>")
 def user_profile(user_id):
