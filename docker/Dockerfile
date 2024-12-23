@@ -8,8 +8,8 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-# Copy the application code
-COPY app /app
+# Copy the entire project
+COPY . .
 
-# Command to run the application
+# Command to run the application using Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:create_app()"]
