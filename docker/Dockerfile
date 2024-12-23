@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Command to run the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:create_app()"]
+CMD ["gunicorn", "--chdir", "/app", "--bind", "0.0.0.0:5000", "app:create_app()"]
